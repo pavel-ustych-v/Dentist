@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+reg
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/reg.css' %}">
+{% endblock %}
+
+{% block content %}
+    
+    <link rel="stylesheet" href="{% static 'login/css/reg.css' %}">
+    <div class="container">
+        <h2>РЕЄСТРАЦІЯ</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h6 id = 'special'>У імені забороняється використовувати спеціальні символи, такі як: @  #  $  ^  & та інше</h6>
+            <h5 id="errorReg"></h5>
+            <h1>Логін</h1>
+            <input type="text"name="username" id="username">
+            <h1>Ел. Пошта</h1>
+            <input type="email" name = 'email' id="email">
+            <h1>Пароль</h1>
+            <input type="password"name="password" id="password">
+            <h1>Повторіть пароль</h1>
+            <input type="password"name="confirm_password" id = "confirm_password">
+            <button type = "submit" id = "regBt">ЗАРЕЄСТРУВАТИСЯ</button>
+        </form>
+        <p>Вже маєте аккаунт? <a href="/auth">АВТОРИЗАЦІЯ</a></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="{% static 'login/js/reg.js' %}"></script>
+{% endblock %}

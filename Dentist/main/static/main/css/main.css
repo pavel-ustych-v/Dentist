@@ -1,0 +1,147 @@
+body {
+    height: auto;
+    width: auto;
+}
+
+h1 {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    font-style: normal;
+    text-transform: uppercase;
+    width: 1000px;
+    text-align: center;
+    justify-content: center;
+    top: 0;
+}
+
+div{
+    margin: 10px;
+}
+
+.photo {
+    position: relative;
+    width: 100%;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    border-top-left-radius: 0;
+}
+
+.photo .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.photo p {
+    font-size: 30px;
+    color: black;
+    margin-bottom: 20px;
+    font-family: "Ledger", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.photo button {
+    font-size: 20px;
+    color: #3430E8;
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 500;
+    background-color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.photo button:hover {
+    background-color: #3430E8;
+    color: white;
+}
+
+#consultation{
+    border: 2px solid #3430E8;
+    border-radius: 40px;
+    width: 250px;
+    height: 50px;
+}
+
+#consultation:hover{
+    border: 2px solid #8A88FD;
+    border-radius: 40px;
+    width: 250px;
+    height: 50px;
+}
+
+.card{
+    width: 200px;
+    height: 250px;
+    background-color: #D4E8F1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.appointmentForm {
+    background-color: #8f9297;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.appointmentForm input,
+.appointmentForm textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #00b7ff;
+    background-color: transparent;
+    color: black;
+    font-size: 18px;
+}
+
+.appointmentForm input::placeholder,
+.appointmentForm textarea::placeholder {
+    color: black;
+}
+
+.appointmentForm .btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #00b7ff;
+    background-color: transparent;
+    color: black;
+    font-size: 18px;
+}
+
+.appointmentForm .btn:hover {
+    background-color: #00b7ff;
+    color: white;
+}

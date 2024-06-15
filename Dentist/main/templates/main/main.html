@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+main
+{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ledger&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Ласкаво просимо до стоматологічного центру "Здорова посмішка"!</h1>
+</div>
+
+<div class="photo">
+  <img src="{% static 'main/img/1.jpg' %}" alt="">
+  <div class="overlay">
+      <p>Бажаєте записатись на консультацію?<br>Опишіть свою проблему і ми зателефонуємо вам!</p>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="consultation">Запис на консультацію</button>
+  </div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <img src="{% static 'main/img/01.jpg' %}" alt="">
+        <p>Професійне чищення зубів</p>
+    </div>
+
+    <div class="card">
+        <img src="{% static 'main/img/02.jpg' %}" alt="">
+        <p>Відбілювання зубів</p>
+    </div>
+
+    <div class="card">
+        <img src="{% static 'main/img/03.jpg' %}" alt="">
+        <p>Хірургічні втручання</p>
+    </div>
+
+    <div class="card">
+        <img src="{% static 'main/img/04.jpg' %}" alt="">
+        <p>Ортодонтичні послуги</p>
+    </div>
+</div>
+
+
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title fs-5" id="myModalLabel">Заповніть форму</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="POST" class="appointmentForm">
+            {% csrf_token %}
+            <input type="text" placeholder="Ваше ім'я" name="name">
+            <input type="text" placeholder="Ваша ел.пошта" name="email">
+            <input type="text" placeholder="Проблема" name="problem">
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Відправити</button>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

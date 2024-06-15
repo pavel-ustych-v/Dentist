@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+price
+{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'css/price.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="bunner">
+        <img src="{% static 'img/bunner.jpg' %}" alt="">
+    </div>
+    
+    <div class="search">
+        <form action="" method="POST">
+            <input type="text" name="search" placeholder="Пошук">
+            <div>
+                <buttton class="search-button"><img src="{% static 'img/search.png' %}" alt="123"></buttton>
+            </div>
+        </form>
+    </div>
+    
+    <div class="prices-div">
+        <div class="cart-inf">
+            <div class="text-inf">
+                <div class="name-inf">
+                    <p>Найменування</p>
+                </div>
+                <div class="price-inf">
+                    <p>Вартість</p>
+                </div>
+            </div>
+        </div>
+        <div class="category">
+            {% for category in categories %}
+                <p class="category-text">{{category.name}}</p>
+                    <div class="servicec">
+                        {% for service in category.select_category.all %}
+                            <div class="text">
+                                <div class="name">
+                                    <p>{{service.name}}</p>
+                                </div>
+                                <div class="price">
+                                    <p>{{service.price}}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

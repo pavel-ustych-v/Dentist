@@ -32,4 +32,5 @@ urlpatterns = [
     path("contacts/", contacts_func, name="contacts_page"),
     path("services/", services_func, name="services_page"),
     path("info/", info_func, name="info_page"),
+    path('logout/', login_v.logout_view, name='logout')
 ]

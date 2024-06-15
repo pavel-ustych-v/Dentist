@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 
 def reg_func(request):
@@ -10,7 +10,7 @@ def reg_func(request):
         confirm_password = request.POST.get('confirm_password')
 
         if username and email and password and confirm_password:
-            if "@" in username or ";" in username or ',' in username or '!' in username or '$' in username or '#' in username or '%' in username or '^' in username or ':' in username or '&' in username or '.' in username or '*' in username or '(' in username or ')' in username or '[' in username or ']' in username or '{' in username or '}' in username:
+            if ("@" not in username and ";" not in username and "," not in username and "!" not in username and "$" not in username and "#" not in username and "%" not in username and "^" not in username and ":" not in username and "&" not in username and "." not in username and "*" not in username and "(" not in username and ")" not in username and "[" not in username and "]" not in username and "{" not in username and "}" not in username and "_" not in username ):
                 if '@' in email:
                     if password == confirm_password:
                         User.objects.create_user(
@@ -29,5 +29,11 @@ def auth_func(request):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
-                return redirect('main_page')
+                return redirect('main_page')  
     return render(request, 'login/auth.html')
+
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('main_page') 
+

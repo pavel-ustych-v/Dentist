@@ -19,7 +19,7 @@ $(document).ready(function() {
             },
             success: function() {
                 if (username && password && email && confirm_password) {
-                    if (! email.includes("@", ";", ',', '!', '$', '#', ' %', '^', ':', '&', '.', '*', '(', ')', '[', ']', '{', '}')){
+                    if (! username.includes("@", ";", ',', '!', '$', '#', ' %', '^', ':', '&', '.', '*', '(', ')', '[', ']', '{', '}')){
                         if (email.includes("@")){
                              if (password == confirm_password){
                                  $("#errorReg").text('Вас успішно зареєстровано!');

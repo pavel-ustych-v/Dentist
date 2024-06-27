@@ -107,7 +107,7 @@ graph TD
 ## Category
 ```python
    class Category(models.Model):
-      name = models.CharField(max_length=255)
+      name = models.CharField(max_length=255) 
 ```
 
 Ця модель використовується для представлення категорії послуг. Наприклад, категорії включають такі елементи, як "Ортодонтичні послуги", "Хірургічні втручання" тощо.
@@ -132,17 +132,21 @@ graph TD
 ```python
 def reg_func(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        confirm_password = request.POST.get('confirm_password')
+        username = request.POST.get('username') # Ім'я, яке вводить користувач при реєстрації
+        email = request.POST.get('email') # Пошта, яку вводить користувач при реєстрації
+        password = request.POST.get('password') # Пароль, який вводить користувач при реєстрації
+        confirm_password = request.POST.get('confirm_password') # Підтвердження паролю
 
-        special_chars = ["@", ";", ",", "!", "$", "#", "%", "^", ":", "&", ".", "*", "(", ")", "[", "]", "{", "}", "_"]
+        special_chars = ["@", ";", ",", "!", "$", "#", "%", "^", ":", "&", ".", "*", "(", ")", "[", "]", "{", "}", "_"] # Список з спеціальними символами, які не можна вводити в імені користувача
 
         if username and email and password and confirm_password:
+         # Перевірка на спеціальні символи в імені
             if not any(char in username for char in special_chars):
+               # Перевірка на поштову адресу
                 if '@' in email:
+                  # Перевірка, чи співпадають паролі
                     if password == confirm_password:
+                     # Реєстрація користувача, якщо всі дані введено коректно
                         User.objects.create_user(
                             username=username,
                             email=email,
@@ -156,11 +160,12 @@ def reg_func(request):
 ```python
 def auth_func(request):
     if request.method == 'POST':
-        username = request.POST.get('login')
-        password = request.POST.get('password')
+        username = request.POST.get('login') # Ім'я, яке вводить користувач при авторизації
+        password = request.POST.get('password') # Пароль, який вводить користувач при авторизації
 
         if username and password:
             user = authenticate(username=username, password=password)
+            # Авторизація користувача, якщо таке ім'я і пароль є в базі даних
             if user:
                 login(request, user)
                 return redirect('main_page')  
@@ -172,6 +177,7 @@ def auth_func(request):
 ```python
 def logout_view(request):
     if request.method == 'POST':
+      # Функція, яка дозволяє вийти користувачу з акаунту
         logout(request)
         return redirect('main_page') 
 ```
@@ -200,9 +206,9 @@ def main_func(request):
 
 ```python
 def price_func(request):
+   # Отримуємо дані з моделі категорій
     categories = Category.objects.all()
     if request.method == 'POST':
-        print(123)
         if request.POST.get('search'):
             categories = categories.filter(name__icontains = request.POST.get('search'))
             
@@ -218,7 +224,7 @@ def price_func(request):
 $(document).ready(function() {
     $("#regBt").click(function(event) {
         event.preventDefault();
-        var username = $("#username").val();
+        var username = $("#username").val(); 
         var email = $("#email").val();
         var password = $("#password").val();
         var confirm_password = $("#confirm_password").val();

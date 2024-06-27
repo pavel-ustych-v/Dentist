@@ -1,0 +1,83 @@
+h2 {
+    font-size: 30px;
+    color: black;
+    margin-bottom: 20px;
+    font-family: "Ledger", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    margin-top: 20px;
+}
+
+img{
+    width: 700px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;;
+}
+
+#img1 img{
+    margin-right: 800px;
+    border-bottom-right-radius: 50px;
+}
+
+#img2 img {
+    margin-left: 620px;
+    border-bottom-left-radius: 50px;
+}
+
+#img3 img {
+    margin-right: 620px;
+    border-bottom-right-radius: 50px;
+}
+
+#img4 img {
+    margin-left: 620px;
+    border-bottom-left-radius: 50px;
+}
+
+#img5 img {
+    margin-right: 830px;
+    border-bottom-right-radius: 50px;
+}
+
+#img6 img{
+    margin-left: 620px;
+    border-bottom-left-radius: 50px;
+}
+
+#img7 img {
+    margin-right: 830px;
+    border-bottom-right-radius: 50px;
+}
+
+#img8 img {
+    margin-left: 650px;
+    border-bottom-left-radius: 50px;
+}
+
+h3{
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+#img1,
+#img2,
+#img3,
+#img4,
+#img5,
+#img6,
+#img7,
+#img8{
+    display: flex;
+    align-items: center;
+}
+
+li {
+    font-size: 22px;
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin-bottom: 10px;
+}

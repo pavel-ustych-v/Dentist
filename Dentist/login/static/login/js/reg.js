@@ -7,10 +7,6 @@ $(document).ready(function() {
         var confirm_password = $("#confirm_password").val();
         var csrf_token = $("[name='csrfmiddlewaretoken']").val(); 
 
-        
-
-        console.log('starting ajax');
-
         $.ajax({
             url: "/reg/",
             type: "POST",

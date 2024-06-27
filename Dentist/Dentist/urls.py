@@ -19,18 +19,16 @@ from django.urls import path
 import login.views as login_v
 from price.views import price_func
 from main.views import main_func
-from contacts.views import contacts_func
-from services.views import services_func
-from info.views import info_func
+from static_apps.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("auth/", login_v.auth_func, name="auth_page"),
     path("reg/", login_v.reg_func, name="reg_page"),
+    path('logout/', login_v.logout_view, name='logout'),
     path("price/", price_func, name="price_page"),
     path("", main_func, name="main_page"),
     path("contacts/", contacts_func, name="contacts_page"),
     path("services/", services_func, name="services_page"),
     path("info/", info_func, name="info_page"),
-    path('logout/', login_v.logout_view, name='logout')
 ]

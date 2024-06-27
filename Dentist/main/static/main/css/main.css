@@ -9,101 +9,69 @@ h1 {
     font-size: 36px;
     font-style: normal;
     text-transform: uppercase;
-    width: 1000px;
     text-align: center;
     justify-content: center;
-    top: 0;
-}
-
-div{
-    margin: 10px;
-}
-
-.photo {
-    position: relative;
-    width: 100%;
-}
-
-.photo img {
-    width: 100%;
-    height: auto;
-    display: flex;
-    border-top-left-radius: 0;
-}
-
-.photo .overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.photo p {
-    font-size: 30px;
-    color: black;
-    margin-bottom: 20px;
-    font-family: "Ledger", serif;
-    font-weight: 400;
+    margin-top: 18px;
+    font-family: "Vollkorn SC", serif;
+    font-weight: 700;
     font-style: normal;
 }
 
-.photo button {
-    font-size: 20px;
-    color: #3430E8;
-    font-family: "Alegreya Sans", sans-serif;
-    font-weight: 500;
-    background-color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.photo button:hover {
-    background-color: #3430E8;
-    color: white;
+div{
+    margin: 12px;
 }
 
 #consultation{
     border: 2px solid #3430E8;
     border-radius: 40px;
-    width: 250px;
-    height: 50px;
+    width: 320px;
+    height: 70px;
+    font-size: 26px;
 }
 
 #consultation:hover{
     border: 2px solid #8A88FD;
-    border-radius: 40px;
-    width: 250px;
-    height: 50px;
 }
 
 .card{
-    width: 200px;
-    height: 250px;
+    width: 230px;
+    height: 350px;
     background-color: #D4E8F1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     text-align: center;
 }
 
+.container .notitle{
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.container .title {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 18px;
+} 
+
 .container{
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
 .card img {
-    width: 100px;
+    top: 0;
+    width: 130px;
     height: auto;
     margin-bottom: 10px;
 }
@@ -144,4 +112,147 @@ div{
 .appointmentForm .btn:hover {
     background-color: #00b7ff;
     color: white;
+}
+
+#all {
+    position: relative;
+    width: 250px;
+    height: 70px;
+    border-radius: 30px;
+    font-size: 27px;
+    background-color: #05426C;
+    color: white;
+    margin: 10px;
+    border-color: white;
+    transition: color 0.5s ease;
+}
+
+#all:before {
+	content:'';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 60px;
+	background-color: white;
+	border-radius: 5px;
+	transition: all 0.5s ease;
+    color: black;
+}
+
+#all:hover {
+	/* width: 100%; */
+    color: black;
+    background-color: #ffffff;
+}
+
+.carousel-item {
+    position: relative;
+    width: 100vw;
+    height: 900px;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 65%);
+    pointer-events: none; 
+}
+
+.carousel-item p {
+    font-size: 26px;
+    color: #333333;
+    font-family: "Montserrat", Sans-serif;
+    font-weight: 400;
+    line-height: 46px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    border-radius: 50%;
+    width: 52px;
+    height: 54px;
+    line-height: 50px;
+    border: 3px solid rgb(17, 72, 221);
+}
+
+.carousel-control-prev {
+    left: -4%;
+}
+
+.carousel-control-next {
+    right: -4%;
+}
+
+.carousel-caption {
+    margin-bottom: 250px;
+    bottom: 100px;
+    text-align: left;
+    margin-left: -180px; 
+}
+
+
+.container-docs {
+    display: flex;
+    gap: 50px;
+}
+
+#doc1,
+#doc2,
+#doc3 {
+    width: 400px;
+    height: 600px;
+    border: 3px solid #0E3B71;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 10px;
+}
+
+.container-docs img {
+    width: 250px;
+    height: 330px;
+    border-radius: 15px;
+}
+
+.container-docs p {
+    font-size: 23px;
+    font-family: "Ledger", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.container-docs li {
+    font-size: 22px;
+    font-family: "Ledger", serif;
+    font-weight: 200;
+    font-style: normal;
+    text-align: center;
+    padding-top: 5px;
+}
+
+h2 {
+    color: #333333;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 46px;
+    margin: 10px;
 }

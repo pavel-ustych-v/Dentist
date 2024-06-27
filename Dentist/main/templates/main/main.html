@@ -6,46 +6,85 @@ main
 {% endblock %}
 
 {% block links %}
-<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Ledger&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ledger&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-<div>
-    <h1>Ласкаво просимо до стоматологічного центру "Здорова посмішка"!</h1>
+
+<div id="carouselExampleCaptions" class="carousel slide" id="slider">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'main/img/1.jpg' %}" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <p>Бажаєте записатись на консультацію? <br>Опишіть свою проблему і ми зателефонуємо вам!</p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="consultation">Запис на консультацію</button>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'main/img/2.jpg' %}" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <p>Бажаєте записатись на консультацію? <br>Опишіть свою проблему і ми зателефонуємо вам!</p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="consultation">Запис на консультацію</button>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'main/img/3.jpg' %}" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <p>Бажаєте записатись на консультацію? <br>Опишіть свою проблему і ми зателефонуємо вам!</p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="consultation">Запис на консультацію</button>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'main/img/4.jpg' %}" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <p>Бажаєте записатись на консультацію? <br>Опишіть свою проблему і ми зателефонуємо вам!</p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="consultation">Запис на консультацію</button>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
-<div class="photo">
-  <img src="{% static 'main/img/1.jpg' %}" alt="">
-  <div class="overlay">
-      <p>Бажаєте записатись на консультацію?<br>Опишіть свою проблему і ми зателефонуємо вам!</p>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="consultation">Запис на консультацію</button>
-  </div>
-</div>
+<h2>Стоматологічні послуги клініки “Здорова посмішка – приватна стоматологія Дніпро</h2>
 
 <div class="container">
     <div class="card">
         <img src="{% static 'main/img/01.jpg' %}" alt="">
-        <p>Професійне чищення зубів</p>
+        <p class="title">Професійне чищення зубів</p>
+        <p class="notitle">Глибоке очищення зубів від нальоту та зубного каменю</p>
     </div>
 
     <div class="card">
         <img src="{% static 'main/img/02.jpg' %}" alt="">
-        <p>Відбілювання зубів</p>
+        <p class="title">Відбілювання зубів</p>
+        <p class="notitle">Поліпшення кольору зубів для яскравішої усмішки</p>
     </div>
 
     <div class="card">
         <img src="{% static 'main/img/03.jpg' %}" alt="">
-        <p>Хірургічні втручання</p>
+        <p class="title">Хірургічні втручання</p>
+        <p class="notitle">Видалення зубів, імплантація та інші стоматологічні операції</p>
     </div>
 
     <div class="card">
         <img src="{% static 'main/img/04.jpg' %}" alt="">
-        <p>Ортодонтичні послуги</p>
+        <p class="title">Ортодонтичні послуги</p>
+        <p class="notitle">Виправлення прикусу та вирівнювання зубів за допомогою брекетів і кап</p>
     </div>
 </div>
 
@@ -72,5 +111,7 @@ main
       </div>
     </div>
   </div>
+
+<a href="/services"><button id="all">Всі послуги</button></a>
 
 {% endblock %}

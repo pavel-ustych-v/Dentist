@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
+# Create your views here.
 
 def reg_func(request):
     if request.method == 'POST':
@@ -9,8 +10,10 @@ def reg_func(request):
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
 
+        special_chars = ["@", ";", ",", "!", "$", "#", "%", "^", ":", "&", ".", "*", "(", ")", "[", "]", "{", "}", "_"]
+
         if username and email and password and confirm_password:
-            if ("@" not in username and ";" not in username and "," not in username and "!" not in username and "$" not in username and "#" not in username and "%" not in username and "^" not in username and ":" not in username and "&" not in username and "." not in username and "*" not in username and "(" not in username and ")" not in username and "[" not in username and "]" not in username and "{" not in username and "}" not in username and "_" not in username ):
+            if not any(char in username for char in special_chars):
                 if '@' in email:
                     if password == confirm_password:
                         User.objects.create_user(
@@ -36,4 +39,3 @@ def logout_view(request):
     if request.method == 'POST':
         logout(request)
         return redirect('main_page') 
-

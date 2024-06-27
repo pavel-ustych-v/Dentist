@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     {% block links %}
     {% endblock %}
 </head>
@@ -24,12 +24,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <nav class="offcanvas-body">
-                    <nav id='header_in_burger'>
-                        <a href="/" class="text-white">Головна</a>
-                        <a href="#" class="text-white">Послуги</a>
-                        <a href="/price" class="text-white">Ціни</a>
-                        <a href="/contacts" class="text-white">Контакти</a>
-                        <a href="#" class="text-white">Інформація</a>
+                    <nav id = 'header_in_burger'>
                         {% if user.is_authenticated %}
                             <p id='authorized' class="text-black">{{ user.username }}</p>
                             <form method="POST" action="{% url 'logout' %}">
@@ -39,17 +34,23 @@
                         {% else %}
                             <a href="{% url 'auth_page' %}" class="text-white">Авторизуйтесь або зареєструйтесь</a>
                         {% endif %}
+                        <a href="/" class="text-white">Головна</a>
+                        <a href="/services" class="text-white">Послуги</a>
+                        <a href="/price" class="text-white">Ціни</a>
+                        <a href="/contacts" class="text-white">Контакти</a>
+                        <a href="/info" class="text-white">Інформація</a>
                     </nav>
                 </nav>
             </div>
         </div>
         
         <nav class="d-none d-lg-flex">
-            <a href="/">Головна</a>
-            <a href="#">Послуги</a>
-            <a href="/price">Ціни</a>
-            <a href="/contacts">Контакти</a>
-            <a href="#">Інформація</a>
+            <!-- <a href="/" id="aLogo"><img src="{% static 'login/img/logo.png' %}" alt="" id="logo" ></a> -->
+            <a class = 'low_intelect' href="/">Головна</a>
+            <a class = 'low_intelect' href="/services">Послуги</a>
+            <a class = 'low_intelect' href="/price">Ціни</a>
+            <a class = 'low_intelect' href="/contacts">Контакти</a>
+            <a class = 'low_intelect' href="/info">Інформація</a>
             {% if user.is_authenticated %}
                 <p id='authorized' class="text-black">{{ user.username }}</p>
                 <form method="POST" action="{% url 'logout' %}" class="d-inline">
@@ -57,12 +58,38 @@
                     <button type="submit" class="btn btn-danger">Вийти з аккаунту</button>
                 </form>
             {% else %}
-                <a href="{% url 'auth_page' %}">Авторизуйтесь або зареєструйтесь</a>
+                <a href="{% url 'auth_page' %}" id="auth">Авторизуйтесь або зареєструйтесь</a>
             {% endif %}
         </nav>
     </header>
-    {% block content %}
-    {% endblock %}
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="menu-footer">
+            <h4>Меню</h4>
+            <a class = 'footer-menu' href="/">Головна</a>
+            <a class = 'footer-menu' href="/services">Послуги</a>
+            <a class = 'footer-menu' href="/price">Ціни</a>
+            <a class = 'footer-menu' href="/contacts">Контакти</a>
+            <a class = 'footer-menu' href="/info">Інформація</a>
+        </div>
+
+        <div class="contacts-footer">
+            <h4>Контакти</h4>
+            <div class="footer-info">
+                <img src="{% static 'login/img/location.png' %}" alt="">
+                <p>м.Дніпро,<br> вул. Глобинська, 1</p>
+            </div>
+
+            <div class="footer-info">
+                <img src="{% static 'login/img/phone.png' %}" alt="">
+                <p>+38 (063) 480 70 42</p>
+            </div>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

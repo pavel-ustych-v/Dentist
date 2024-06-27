@@ -10,41 +10,39 @@ price
 {% endblock %}
 
 {% block content %}
-    <div class="bunner">
-        <img src="{% static 'img/bunner.jpg' %}" alt="">
+<div class="bunner">
+    <div class="img-bunner">
+        <img src="{% static 'img/bunner.jpg' %}" alt="Bunner Image">
     </div>
-    
-    <div class="search">
-        <form action="" method="POST">
-            <input type="text" name="search" placeholder="Пошук">
-            <div>
-                <buttton class="search-button"><img src="{% static 'img/search.png' %}" alt="123"></buttton>
-            </div>
-        </form>
+    <div class="bunner-text">
+        <p class="main-bunner fs-1">Знижка 70%</p>
+        <p class="second-bunner fs-2">Військовим і пенсіонерам на лікування КАРІЄСУ -70%</p>
     </div>
+</div>
+
     
     <div class="prices-div">
         <div class="cart-inf">
             <div class="text-inf">
                 <div class="name-inf">
-                    <p>Найменування</p>
+                    <p class="fs-1">Найменування</p>
                 </div>
                 <div class="price-inf">
-                    <p>Вартість</p>
+                    <p class="fs-1">Вартість</p>
                 </div>
             </div>
         </div>
         <div class="category">
             {% for category in categories %}
-                <p class="category-text">{{category.name}}</p>
-                    <div class="servicec">
+                <p class="category-text fs-1">{{category.name}}</p>
+                    <div class="servicec ">
                         {% for service in category.select_category.all %}
                             <div class="text">
                                 <div class="name">
-                                    <p>{{service.name}}</p>
+                                    <p class="text-break fs-2">{{service.name}}</p>
                                 </div>
                                 <div class="price">
-                                    <p>{{service.price}}</p>
+                                    <p class="text-break fs-3">{{service.price}}</p>
                                 </div>
                             </div>
                         {% endfor %}

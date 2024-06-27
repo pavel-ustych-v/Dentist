@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+main
+{% endblock %}
+
+{% block links %}
+  <link rel="stylesheet" href="{% static 'static_apps/css/info.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ledger&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vollkorn+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+
+<div id="carouselExampleCaptions" class="carousel slide" id="slider">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'static_apps/img/image-1.jpg' %}" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <p>Сучасні методи лікування<br> Ми постійно впроваджуємо нові технології та методики у нашу практику.<br>У цьому розділі ви зможете ознайомитися з сучасними методами лікування, <br>які ми застосовуємо:<br>- Лазерна стоматологія: <br>Переваги та можливості використання лазера в стоматології.<br>- Імплантація зубів: <br>Процес імплантації, види імплантатів та переваги цієї процедури.<br>- Ортодонтія: <br>Інноваційні методи вирівнювання зубів, включаючи використання <br>невидимих кап (елайнери) та сучасних брекет-систем.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'static_apps/img/image-2.jpg' %}" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <p>Поради по догляду за зубами  <br> У цьому розділі ми розповімо про щоденні гігієнічні процедури, які допоможуть зберегти ваші зуби здоровими:<br>- Правильна техніка чищення зубів: <br>Дізнайтеся, як правильно чистити зуби, які зубні щітки та пасти краще використовувати.<br>- Інтердентальні засоби: <br>Важливість використання зубної нитки, йоржиків та іригаторів для очищення міжзубних проміжків.<br>- Догляд за яснами: <br>Поради щодо збереження здоров'я ясен і запобігання захворюванням пародонту.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'static_apps/img/image-3.jpg' %}" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <p>Профілактика стоматологічних захворювань<br> 
+          Цей розділ присвячений запобіганню захворювань зубів та ясен:<br>- Профілактичні огляди:<br> Важливість регулярних візитів до стоматолога для раннього виявлення та попередження проблем.<br>- Раціон харчування:<br> Як харчування впливає на здоров'я зубів, які продукти корисні, а які слід обмежити.<br>- Фторування зубів: <br>Роль фтору у зміцненні зубної емалі та профілактиці карієсу.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'static_apps/img/image-4.jpg' %}" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <p>Лікування дітей<br><br>Ми приділяємо особливу увагу дитячій стоматології. У цьому розділі <br>ви знайдете:<br>- Перший візит до стоматолога:<br> Як підготувати дитину та зробити перший візит комфортним.<br>- Догляд за молочними зубами:<br> Поради щодо догляду за молочними зубами та профілактика дитячого карієсу.<br>- Сучасні методи лікування дітей: <br>Безболісні методи лікування та спеціальні підходи до роботи з дітьми.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+{% endblock %}

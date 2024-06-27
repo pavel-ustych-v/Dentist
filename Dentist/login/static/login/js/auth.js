@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#regBt").click(function(event) {
+    $("#authBt").click(function(event) {
         event.preventDefault();
         var username = $("#username").val();
         var password = $("#password").val();

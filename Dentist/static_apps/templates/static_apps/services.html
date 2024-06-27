@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+services
+{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'static_apps/css/services.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ledger&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div id="img1">
+    <img src="{% static 'static_apps/img/1.jpg' %}" alt="">
+    <div class="text-container">
+        <h3>Професійне чищення зубів</h3>
+        <ul>
+            <li>Чищення зубів</li>
+        </ul>
+    </div>
+</div>
+
+<div id="img2">
+    <div class="text-container">
+        <h3>Лікування карієсу та пломбування</h3>
+        <ul>
+            <li>Лікування каріозного процесу</li>
+            <li>Постановка пломби</li>
+            <li>Постановка тимчасової пломби</li>
+        </ul>
+    </div>
+        <img src="{% static 'static_apps/img/2.jpg' %}" alt="">
+</div>
+
+<div id="img3">
+    <img src="{% static 'static_apps/img/3.jpg' %}" alt="">
+    <div class="text-container">    
+        <h3>Ортодонтичні послуги (брекети, капи)</h3>
+        <ul>
+            <li>Спід-укладання</li>
+        </ul>
+    </div>
+</div>
+
+<div id="img4">
+    <div class="text-container">
+        <h3>Імплантація та протезування</h3>
+        <ul>
+            <li>Протезування гнучкого протезу</li>
+            <li>Постановка цирконієвої коронки</li>
+            <li>Постановка металевої коронки</li>
+            <li>Протезування жорсткого протезу</li>
+            <li>Постановка керамічної коронки</li>
+        </ul>
+    </div>
+    <img src="{% static 'static_apps/img/4.jpg' %}" alt="">
+</div>
+
+<div id="img5">
+    <img src="{% static 'static_apps/img/5.jpg' %}" alt="">
+    <div class="text-container">
+        <h3>Хірургічні втручання</h3>
+        <ul>
+            <li>Видалення нерва</li>
+            <li>Видалення зуба</li>
+            <li>Видалення зуба мудрості</li>
+        </ul>
+    </div>
+</div>
+
+<div id="img6">
+    <div class="text-container">
+        <h3>Косультації та профілактичні огляди</h3>
+        <ul>
+            <li>Огляд (консультація)</li>
+            <li>Складання плану лікування</li>
+        </ul>
+    </div>
+    <img src="{% static 'static_apps/img/6.jpg' %}" alt="">
+</div>
+
+<div id="img7">
+    <img src="{% static 'static_apps/img/7.jpg' %}" alt="">
+    <div class="text-container">
+        <h3>Анестезія</h3>
+        <ul>
+            <li>Анестезія месаплекаційна</li>
+            <li>Анестезія місцева</li>
+        </ul>
+    </div>
+</div>
+
+<div id="img8">
+    <div class="text-container">
+        <h3>Ендодонтичне лікування</h3>
+        <ul>
+            <li>Лікування пульпіту</li>
+            <li>Пломбування кореневих каналів</li>
+            <li>Лікування періодонтитів</li>
+        </ul>
+    </div>
+    <img src="{% static 'static_apps/img/8.jpg' %}" alt="">
+</div>
+
+{% endblock %}

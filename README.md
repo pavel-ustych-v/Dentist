@@ -224,11 +224,36 @@ def price_func(request):
 $(document).ready(function() {
     $("#regBt").click(function(event) {
         event.preventDefault();
+        // тут мі отримуємо усі поля, а точніше їх значення
         var username = $("#username").val(); 
         var email = $("#email").val();
         var password = $("#password").val();
         var confirm_password = $("#confirm_password").val();
-        var csrf_token = $("[name='csrfmiddlewaretoken']").val(); 
+        var csrf_token = $("[name='csrfmiddlewaretoken']").val();
+
+        var special_chars = ["@", ";", ",", "!", "$", "#", "%", "^", ":", "&", ".", "*", "(", ")", "[", "]", "{", "}", "_"];  // це спеціальний список з спец символами
+        var has_special_char = special_chars.some(char => username.includes(char)); // лінійна функція що перевіряє в полі username наявність спеціальних символів за допомогою методу some(), що перевіряє, чи задовольняє якийсь елемент масиву умові, заданій в функції, що передається. Тобто зручний перебірник нашего рядка 
+
+        // це умови валідації
+        if (!username || !email || !password || !confirm_password) {
+            $("#errorReg").text('Заповніть усі поля, вас не зареєстровано!');
+            return;
+        }
+
+        if (has_special_char) {
+            $("#errorReg").text('Спеціальні символи, вас не зареєстровано!');
+            return;
+        }
+
+        if (!email.includes("@")) {
+            $("#errorReg").text('Введіть коректну пошту, вас не зареєстровано!');
+            return;
+        }
+
+        if (password !== confirm_password) {
+            $("#errorReg").text('Паролі не співпадають, вас не зареєстровано!');
+            return;
+        }
 
         $.ajax({
             url: "/reg/",
@@ -240,41 +265,32 @@ $(document).ready(function() {
                 confirm_password: confirm_password,
                 csrfmiddlewaretoken: csrf_token
             },
-            success: function() {
-                if (username && password && email && confirm_password) {
-                    if (! email.includes("@", ";", ',', '!', '$', '#', ' %', '^', ':', '&', '.', '*', '(', ')', '[', ']', '{', '}')){
-                        if (email.includes("@")){
-                             if (password == confirm_password){
-                                 $("#errorReg").text('Вас успішно зареєстровано!');
-                                 $("#errorReg").css({'color':'red'})
-                                 $("#username").text('');
-                                 $("#email").text('');
-                                 $("#password").text('');
-                                 $("#confirm_password").text('');   
-                                 }else {
-                                     $("#errorReg").text('Паролі не співпадають, вас не зареєстровано!');
-                                 }            
-                             }else {
-                                 $("#errorReg").text('Введіть коректну пошту, вас не зареєстровано!');
-                             }   
-                         }else {
-                            $("#errorReg").text('Спеціальні символи, вас не зареєстровано!');
-                         }
-                    }else {
-                        $("#errorReg").text('Заповніть усі поля, вас не зареєстровано!');
-                    } 
-                          
-                }
-})
-})
-})
+            // у разі успіху ми відчищуємо усі поля та виводимо зеленим кольором успішний резльтат.
+            success: function(response) {
+                $("#errorReg").text(response.success);
+                $("#errorReg").css({'color': 'green'});
+                $("#username").val('');
+                $("#email").val('');
+                $("#password").val('');
+                $("#confirm_password").val('');
+            },
+            // у разі помилки наших валідацій ми виводемо помилку червоним кольором, xhr - метод "спілкування" броузера з сервером
+            error: function(xhr) {
+                var error = JSON.parse(xhr.responseText);
+                $("#errorReg").text(error.error);
+                $("#errorReg").css({'color': 'red'});
+            }
+        });
+    });
+});
+
 ```
 ## Javascript in authorization
 Тут ми отримуємо дані користувача з форми реєстрації, яку він заповнює, і перевіряємо на наявність помилок, не оновлюючи сторінки:
 
 ```javascript
 
-$(document).ready(function() {
+$(document).ready(function() { 
     $("#authBt").click(function(event) {
         event.preventDefault();
         var username = $("#username").val();
@@ -294,7 +310,6 @@ $(document).ready(function() {
             success: function(response) {
                 if (username && password) {
                     $('#authorized').text(username);
-                    console.log('success ajax');
                 } else {
                     $("#errorAuth").text('Заповніть усі поля, вас не авторизовано!');
                 }

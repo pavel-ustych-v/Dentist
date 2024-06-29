@@ -18,7 +18,6 @@ $(document).ready(function() {
             success: function(response) {
                 if (username && password) {
                     $('#authorized').text(username);
-                    console.log('success ajax');
                 } else {
                     $("#errorAuth").text('Заповніть усі поля, вас не авторизовано!');
                 }
